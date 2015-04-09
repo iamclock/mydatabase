@@ -4,11 +4,65 @@
 
 
 create table if not exists company(name varchar(255) primary key);
-create table if not exists office(address varchar(255) primary key, idBranch int, foreign key fk_to_branch(idBranch) references branch_office());
-create table if not exists client();
-create table if not exists employee();
-create table if not exists department(name varchar(255) primary key, phone_number varchar(11) unique, );
-create table if not exists service();
-create table if not exists oredered_service();
-create table if not exists branch_office();
-create table if not exists claim();
+create table if not exists office(
+									address varchar(255),
+									idBranch int,
+									head_office bool,
+									main_office bool,
+									foreign key fk_to_branch(idBranch) references branch_office()
+									primary key (address)
+									);
+create table if not exists client(
+									name varchar(255) not null,
+									id int not null auto_increment,
+									idOrder int not null,
+									bday varchar(10) not null,
+									priority int,
+									foreign key fk_to_order(idOrder)
+									primary key (id)
+									);
+create table if not exists employee(
+									name varchar(255) not null,
+									post varchar(255) not null,
+									id int not null auto_increment,
+									vacancy bool, # возможно лучше поставить дату или число дней
+									idDepart int not null,
+									bday varchar(10) not null,
+									foreign key fk_to_department(idDepart)
+									primary key (id)
+									);
+create table if not exists department(
+									name varchar(255) not null,
+									phone_number varchar(11),
+									idOffice varchar(255) not null,
+									unique (phone_number),
+									primary key(name),
+									foreign key fk_to_office(idOffice)
+									);
+create table if not exists service(
+									name varchar(255) not null,
+									cost int,
+									idDepart int not null,
+									id int not null
+									foreign key fk_to_depart(idDepart),
+									primary key (id)
+									);
+create table if not exists _order(
+									id int not null auto_increment,
+									time_event varchar(100) not null,
+									primary key (id)
+									);
+create table if not exists branch_office(
+									city_name varchar(255) not null,
+									id int not null,
+									idCompany varchar(255) not null,
+									primary key (id),
+									foreign key fk_to_company(idCompany)
+									);
+create table if not exists claim(
+									id int not null auto_increment
+									commentary varchar(255) not null,
+									idOrder int not null,
+									primary key (id),
+									foreign key fk_to_order(idOrder)
+									);

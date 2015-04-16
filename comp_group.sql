@@ -2,13 +2,18 @@
 
 
 
-create database if not exists new_2015;
-use new_2015;
+create database if not exists 1125_st;
+use 1125_st;
 create table if not exists company(name varchar(255) primary key);
 create table if not exists _order(
 									id int not null auto_increment,
 									submission_date date not null,
 									primary key (id)
+									);
+create table if not exists ordered_service(
+									idOrder int not null,
+									idService int not null,
+									primary key (idOrder, idService)
 									);
 create table if not exists claim(
 									id int not null auto_increment,
@@ -64,6 +69,7 @@ create table if not exists service(
 									cost int,
 									idDepart varchar(255) not null,
 									id int not null,
+									requirements varchar(255) not null,
 									foreign key fk_to_depart(idDepart) references department(name),
 									primary key (id)
 									);

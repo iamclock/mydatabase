@@ -13,6 +13,8 @@ create table if not exists _order(
 create table if not exists ordered_service(
 									idOrder int not null,
 									idService int not null,
+									foreign key fk_to_order(idOrder) references _order(id),
+									foreign key fk_to_service(idService) references service(id),
 									primary key (idOrder, idService)
 									);
 create table if not exists claim(

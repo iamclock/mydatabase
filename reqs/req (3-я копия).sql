@@ -2,7 +2,7 @@
 
 
 
-select	department.idOffice, employee.idDepart
+select	idDepart, idOffice
 		count(employee.idDepart)
-from employee
+from employee, department
 group by department.idOffice;

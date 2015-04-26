@@ -1,4 +1,4 @@
-select *
+select employee.*
 from employee
 where	employee.name not like 'Т%' and
 		(year(date())-year(employee.bday)) as age > 25 and

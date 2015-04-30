@@ -1,9 +1,3 @@
-
-
-
-
-
-
 select	company.name, branch_office.city_name,
 		department.name, service.name, service.cost,
 		service.requirements

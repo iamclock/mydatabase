@@ -2,7 +2,6 @@
 
 
 
-select	idDepart, idOffice
-		count(employee.idDepart)
-from employee, department
-group by department.idOffice;
+select	Office.address, count(employee.id)
+from department where department.name = employee.idDepart and Office.address = department.idOffice
+group by Office.address;

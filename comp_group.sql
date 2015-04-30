@@ -62,7 +62,7 @@ create table if not exists claim(
 									id int not null auto_increment,
 									commentary varchar(255) not null,
 									idOrder int not null,
-									foreign key fk_to_order(idOrder) references _order(id) on delete restrict on update cascade,
+									foreign key fk_to_order(idOrder) references ordered_service(id) on delete restrict on update cascade,
 									primary key (id)
 									);
 create table if not exists employee(

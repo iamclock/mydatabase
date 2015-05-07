@@ -6,4 +6,4 @@ where	branch_office.idCompany = company.name and
 		office.idBranch = branch_office.id and
 		department.idOffice = office.address and
 		service.idDepart = department.name
-group by company.name;
+order by company.name;

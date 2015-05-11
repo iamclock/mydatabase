@@ -2,8 +2,8 @@
 
 
 
-create database if not exists 1125_st;
-use 1125_st;
+create database if not exists new_2015;
+use new_2015;
 create table if not exists company(name varchar(255) primary key);
 create table if not exists branch_office(
 									city_name varchar(255) not null,
@@ -61,8 +61,9 @@ create table if not exists ordered_service(
 create table if not exists claim(
 									id int not null auto_increment,
 									commentary varchar(255) not null,
-									idOrder int not null,
-									foreign key fk_to_order(idOrder) references ordered_service(id) on delete restrict on update cascade,
+									idOrd_ordered_serv int not null,
+									idServ_ordered_serv int not null,
+									foreign key fk_to_order(idOrd_ordered_serv, idServ_ordered_serv) references ordered_service(idOrder, idService) on delete restrict on update cascade,
 									primary key (id)
 									);
 create table if not exists employee(

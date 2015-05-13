@@ -1,4 +1,12 @@
-select ordered_service.id, sum(service.cost) as entire
-from ordered_service, service
-where 
-summ < maxum and summ > minum
+select ordered_service.idOrder, summary.summ as entire
+from ordered_service, (select sum(t3.cost) as summ, t2.idOrder
+			from _order as t1 join ordered_service as t2 join service as t3
+			on t1.id = t2.idOrder and t2.idService = t3.id
+			) as summary
+where	summary.summ < max(summary.summ) and
+		summary.summ > min(summary.summ) and
+		summary.idOrder = ordered_service.idOrder
+order by ordered_service.idOrder
+
+
+# Invalid use of group function в строках 6 и 7

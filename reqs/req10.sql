@@ -19,6 +19,7 @@ from office, department,
 			where department.name = service.idDepart
 			) as t1
 where department.name = t1.name and
-		max(t1.count) = t1.count and #error
+		t1.count = (select max(t1.count)
+			) and
 		department.idOffice = office.address
 order by office.address

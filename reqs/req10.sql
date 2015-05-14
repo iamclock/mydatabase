@@ -17,9 +17,14 @@ from office, department,
 				count(service.id) as count
 			from department, service
 			where department.name = service.idDepart
+			group by department.name
 			) as t1
 where department.name = t1.name and
-		t1.count = (select max(t1.count)
+		t1.count = #all (select max(t1.count)
 			) and
 		department.idOffice = office.address
 order by office.address
+
+
+
+#

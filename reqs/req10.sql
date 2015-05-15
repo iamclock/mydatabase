@@ -12,19 +12,41 @@ order by of.address
 
 select	office.address, department.name as department,
 		t1.count as number
-from office, department,
-		(select department.name as name,
-				count(service.id) as count
-			from department, service
-			where department.name = service.idDepart
+	from office join
+		(select department.name as depart_name,
+				count(service.id) as number_of_services, service.id
+			from department join service on department.id = service.idDepart
 			group by department.name
-			) as t1
-where department.name = t1.name and
+			) as t1 on office.address = t1.depart_name
+	where department.name = t1.name and
 		t1.count = #all (select max(t1.count)
 			) and
 		department.idOffice = office.address
-order by office.address
+	order by office.address
 
 
 
 #
+
+
+select office.address as address, department.name as depart_name, count() as number_of_services
+	from
+		(select 
+			from 
+
+
+
+
+
+
+
+
+
+	(select office.address as address, t1.depart_name, t1.number_of_services
+		from office join
+			(select department.name as depart_name,
+						count(service.id) as number_of_services, service.id
+					from department join service on department.id = service.idDepart
+					group by department.name
+					) as t1 on office.address = t1.depart_name
+					order by count(service.id)

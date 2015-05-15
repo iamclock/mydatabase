@@ -1,3 +1,4 @@
+/*
 select summary.idOrder, summary.summ as entire
 	from
 		(select sum(t3.cost) as summ, t2.idOrder
@@ -7,7 +8,32 @@ select summary.idOrder, summary.summ as entire
 		) as summary
 	where summary.summ < any(select summary.summ from summary) and
 		summary.summ > any(select summary.summ from summary) #или продублировать таблицу сверху
-		# and
-		#summary.idOrder = ordered_service.idOrder
 	order by summary.idOrder
+*/
 
+
+
+select idOrder, entire_cost
+	from
+		(select ordered_service.idOrder, sum(service.cost) as entire_cost
+			from ordered_service join service
+				on ordered_service.idService = service.id
+			group by ordered_service.idOrder
+		) as table1
+	where table1.entire_cost <
+		(select max(cost) from
+			(select ordered_service.idOrder, sum(service.cost) as cost
+				from ordered_service join service
+					on ordered_service.idService = service.id
+				group by ordered_service.idOrder
+			) as temp1
+		)
+		and table1.entire_cost >
+		(select min(cost) from
+			(select ordered_service.idOrder, sum(service.cost) as cost
+				from ordered_service join service
+					on ordered_service.idService = service.id
+				group by ordered_service.idOrder
+			) as temp2
+		)
+	order by idOrder

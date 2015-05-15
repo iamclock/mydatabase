@@ -28,16 +28,31 @@ select	office.address, department.name as department,
 
 #
 
+
+/*
+	(select office.address as address, t1.depart_name, t1.number_of_services
+		from office join
+			(select department.name as depart_name,
+						count(service.id) as number_of_services, service.id
+					from department join service on department.id = service.idDepart
+					group by department.name
+					) as t1 on office.address = t1.depart_name
+					order by count(service.id)
+*/
+
+
+
+
 #o_s_t - office_services_table
 #d_s_t - department_services_table
 #
 
 
-
+/*
 select o_s_t.address,
 		o_s_t.depart_name,
 		d_s_t.number_of_department_services,
-		o_s_t.number_of_office_services
+		o_s_t.number_of_office_services #sum(o_s_t.)
 	from
 		(select office.address as address,
 				department.name as depart_name,
@@ -67,22 +82,53 @@ select o_s_t.address,
 					) as t1
 			)
 	order by o_s_t.address
-	
-
-
-
-
-
-
-
-
-/*
-	(select office.address as address, t1.depart_name, t1.number_of_services
-		from office join
-			(select department.name as depart_name,
-						count(service.id) as number_of_services, service.id
-					from department join service on department.id = service.idDepart
-					group by department.name
-					) as t1 on office.address = t1.depart_name
-					order by count(service.id)
 */
+
+
+select s_t.address,
+		s_t.depart_name,
+		s_t.number_of_department_services,
+		sum(s_t.)
+	from (select office.address as address,
+				department.name as depart_name,
+				count(*) as number_of_depart_services
+			from office join department join service
+				on office.address = department.idOffice
+				and department.name = service.idDepart
+			group by department.name
+		) as s_t
+	where 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

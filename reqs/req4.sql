@@ -1,12 +1,6 @@
-#select client.bday, _order.submission_date, employee.bday
-#from client, _order, employee
 
 
-
-
-
-select client.bday, _order.submission_date, employee.bday
-#union all
+select bday from client union select submission_date from _order union select bday from employee
 
 
 

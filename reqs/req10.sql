@@ -9,7 +9,7 @@ order by of.address
 
 
 
-
+/*
 select	office.address, department.name as department,
 		t1.count as number
 	from office join
@@ -23,16 +23,51 @@ select	office.address, department.name as department,
 			) and
 		department.idOffice = office.address
 	order by office.address
-
+*/
 
 
 #
 
+#o_s_t - office_services_table
+#d_s_t - department_services_table
+#
 
-select office.address as address, department.name as depart_name, count() as number_of_services
+
+
+select o_s_t.address,
+		o_s_t.depart_name,
+		d_s_t.number_of_department_services,
+		o_s_t.number_of_office_services
 	from
-		(select 
-			from 
+		(select office.address as address,
+				department.name as depart_name,
+				count(*) as number_of_office_services
+			from office join department join service
+				on office.address = department.idOffice
+				and department.name = service.idDepart
+			group by office.address
+		) as o_s_t,
+		(select department.name as depart_name,
+				count(*) as number_of_department_services
+			from department join service
+				on department.name = service.idDepart
+			group by department.name
+		) as d_s_t
+	where o_s_t.address = d_s_t.depart_name
+		and o_s_t.number_of_office_services =
+			(select max(o_s_t.number_of_office_services)
+				from 
+					(select office.address as address,
+						department.name as depart_name,
+						count(*) as number_of_office_services
+					from office join department join service
+						on office.address = department.idOffice
+						and department.name = service.idDepart
+					group by office.address
+					) as t1
+			)
+	order by o_s_t.address
+	
 
 
 
@@ -41,7 +76,7 @@ select office.address as address, department.name as depart_name, count() as num
 
 
 
-
+/*
 	(select office.address as address, t1.depart_name, t1.number_of_services
 		from office join
 			(select department.name as depart_name,
@@ -50,3 +85,4 @@ select office.address as address, department.name as depart_name, count() as num
 					group by department.name
 					) as t1 on office.address = t1.depart_name
 					order by count(service.id)
+*/

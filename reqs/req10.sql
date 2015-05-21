@@ -4,39 +4,28 @@
 
 
 
-select o_s_t.address,
-		o_s_t.depart_name,
-		d_s_t.number_of_department_services,
-		o_s_t.number_of_office_services #sum(o_s_t.)
-	from
-		(select office.address as address,
-				department.name as depart_name,
-				count(*) as number_of_office_services
-			from office join department join service
-				on office.address = department.idOffice
-				and department.name = service.idDepart
-			group by office.address
-		) as o_s_t,
+select address,
+		name,
+		number_of_dep_services
+	from office join department on office.address = department.idOffice join
 		(select department.name as depart_name,
-				count(*) as number_of_department_services
+				count(*) as number_of_dep_services
 			from department join service
-				on department.name = service.idDepart
+				on
+				department.name = service.idDepart
 			group by department.name
-		) as d_s_t
-	where o_s_t.depart_name = d_s_t.depart_name
-		and o_s_t.number_of_office_services =
-			(select max(o_s_t.number_of_office_services)
-				from 
-					(select office.address as address,
-						department.name as depart_name,
-						count(*) as number_of_office_services
-					from office join department join service
-						on office.address = department.idOffice
-						and department.name = service.idDepart
-					group by office.address
-					) as t1
-			)
-	order by o_s_t.address
+		) as table1
+		on department.name = table1.depart_name
+	where table1.number_of_dep_services = 
+		(select max(t1.number_of_dep_services)
+			from 
+				(select count(*) as number_of_dep_services
+					from department join service
+						on department.name = service.idDepart
+					group by department.name
+				) as t1
+		)
+	order by office.address
 
 
 /*

@@ -11,7 +11,7 @@ select concat(
 	'. В настоящий момент сотрудник ', if(employee.vacancy, 'находится в отпуске', 'не находится в отпуске'),
 	'. Отдел, в котором работает сотрудник оказывает ', newt1.numb_of_dep_servs,
 	' услуг, количество других работников в отделе равно ', newt2.numb_of_dep_empls, '.'
-	)# as request
+	)
 	from
 		company join branch_office on company.name = branch_office.idCompany
 		join office on office.idBranch = branch_office.id

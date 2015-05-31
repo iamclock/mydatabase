@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://isc.tsu.ru/redmine/issues/736 -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Улучшение #736: Милованов Тимофей. Дополнительные запросы - СУБД :: 1115 - Redmine</title>
+<meta name="description" content="Redmine">
+<meta name="keywords" content="issue,bug,tracker">
+<meta content="authenticity_token" name="csrf-param">
+<meta content="wwqSTLf4mqZLo0QNQafVXERL8eLETyktHoBWx/WLkoI=" name="csrf-token">
+<link rel="shortcut icon" href="https://isc.tsu.ru/redmine/favicon.ico?1396112202">
+<link href="https://isc.tsu.ru/redmine/stylesheets/jquery/jquery-ui-1.9.2.css?1396112202" media="all" rel="stylesheet" type="text/css">
+<link href="https://isc.tsu.ru/redmine/stylesheets/application.css?1396112202" media="all" rel="stylesheet" type="text/css">
+
+<script src="https://isc.tsu.ru/redmine/javascripts/jquery-1.8.3-ui-1.9.2-ujs-2.0.3.js?1396112202" type="text/javascript"></script>
+<script src="https://isc.tsu.ru/redmine/javascripts/application.js?1396112202" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(window).load(function(){ warnLeavingUnsaved('Текущая страница содержит несохранённый текст, который будет потерян, если вы покинете эту страницу.'); });
+//]]>
+</script>
+
+
+<!-- page specific tags -->
+<script src="https://isc.tsu.ru/redmine/javascripts/jstoolbar/jstoolbar-textile.min.js?1396112202" type="text/javascript"></script><script src="https://isc.tsu.ru/redmine/javascripts/jstoolbar/lang/jstoolbar-ru.js?1396112202" type="text/javascript"></script><link href="https://isc.tsu.ru/redmine/stylesheets/jstoolbar.css?1396112202" media="screen" rel="stylesheet" type="text/css">  <script src="https://isc.tsu.ru/redmine/javascripts/attachments.js?1396112202" type="text/javascript"></script>
+    <link href="http://redmine_thin_cluster/redmine/issues/736.atom?key=5c8c59dab0896b92e454f7be1b425a8aee228d19" rel="alternate" title="СУБД :: 1115 - Улучшение #736: Милованов Тимофей. Дополнительные запросы" type="application/atom+xml">
+<script src="https://isc.tsu.ru/redmine/javascripts/context_menu.js?1396112202" type="text/javascript"></script><link href="https://isc.tsu.ru/redmine/stylesheets/context_menu.css?1396112202" media="screen" rel="stylesheet" type="text/css"></head>
+<body class="project-students-lab-db-1115 controller-issues action-show">
+<div id="wrapper">
+<div id="wrapper2">
+<div id="wrapper3">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a href="https://isc.tsu.ru/redmine/my/account" class="my-account">Моя учётная запись</a></li>
+<li><a href="https://isc.tsu.ru/redmine/logout" class="logout" data-method="post" rel="nofollow">Выйти</a></li></ul>    </div>
+    <div id="loggedas">Вошли как <a href="https://isc.tsu.ru/redmine/users/116" class="user active">s15-14</a></div>
+    <ul><li><a href="https://isc.tsu.ru/redmine" class="home">Домашняя страница</a></li>
+<li><a href="https://isc.tsu.ru/redmine/my/page" class="my-page">Моя страница</a></li>
+<li><a href="https://isc.tsu.ru/redmine/projects" class="projects">Проекты</a></li>
+<li><a href="http://www.redmine.org/guide" class="help">Помощь</a></li></ul></div>
+
+<div id="header">
+    <div id="quick-search">
+        <form accept-charset="UTF-8" action="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+        <input name="issues" type="hidden" value="1">
+        <label for="q">
+          <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/search" accesskey="4">Поиск</a>:
+        </label>
+        <input accesskey="f" class="small" id="q" name="q" size="20" type="text">
+</form>        <select id="project_quick_jump_box" name="project_quick_jump_box" onchange="if (this.value != &#39;&#39;) { window.location = this.value; }"><option value="">Перейти к проекту...</option><option value="" disabled="disabled">---</option><option selected="selected" value="/redmine/projects/students-lab-db-1115?jump=issues">СУБД :: 1115</option><option value="/redmine/projects/students-lab-db-1125?jump=issues">СУБД :: 1125</option><option value="/redmine/projects/os-seminars?jump=issues">Операционные системы. Осень 2014</option><option value="/redmine/projects/work-on-ettercap?jump=issues">Работа над Ettercap</option></select>
+    </div>
+
+    <h1>СУБД :: 1115</h1>
+
+    <div id="main-menu">
+        <ul><li><a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115" class="overview">Обзор</a></li>
+<li><a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity" class="activity">Действия</a></li>
+<li><a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/issues" class="issues selected">Задачи</a></li>
+<li><a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/news" class="news">Новости</a></li>
+<li><a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/documents" class="documents">Документы</a></li>
+<li><a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/wiki" class="wiki">Wiki</a></li>
+<li><a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/files" class="files">Файлы</a></li></ul>
+    </div>
+</div>
+
+<div id="main" class="">
+    <div id="sidebar">
+          <h3>Задачи</h3>
+
+<ul>
+<li><a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/issues?set_filter=1">Просмотреть все задачи</a></li>
+<li><a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/issues/report">Краткое описание</a></li>
+
+</ul>
+
+
+
+
+
+
+
+
+
+        
+    </div>
+
+    <div id="content">
+        
+        <div class="contextual">
+<a href="https://isc.tsu.ru/redmine/issues/736/edit" accesskey="e" class="icon icon-edit" onclick="showAndScrollTo(&quot;update&quot;, &quot;issue_notes&quot;); return false;">Редактировать</a>
+
+<a href="https://isc.tsu.ru/redmine/watchers/watch?object_id=736&object_type=issue" class="issue-736-watcher icon icon-fav-off" data-method="post" data-remote="true" rel="nofollow">Следить</a>
+
+
+</div>
+
+
+<h2>Улучшение #736</h2>
+
+<div class="issue tracker-2 status-5 priority-4 priority-default closed details">
+    <div class="next-prev-links contextual">
+      <a href="https://isc.tsu.ru/redmine/issues/686" title="#686">« Предыдущее</a> |
+        <span class="position">30/65</span> |
+      <a href="https://isc.tsu.ru/redmine/issues/731" title="#731">Следующее »</a>
+    </div>
+
+  <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #736  Милованов Тимофей. Дополнительные запросы - СУБД    1115 - Redmine_files/637dc6a3b52b0db7b2ca2a71734c1386" ssl="false" title="">
+
+<div class="subject">
+<div><h3>Милованов Тимофей. Дополнительные запросы</h3></div>
+</div>
+        <p class="author">
+        Добавил(а) <a href="https://isc.tsu.ru/redmine/users/95" class="user active">Иван Иванович Худяшов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-06-12" title="12.06.2014 14:33">12 месяца</a> назад.
+        Обновлено <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-09-17" title="17.09.2014 16:09">8 месяца</a> назад.
+        </p>
+
+<table class="attributes">
+<tbody><tr><th class="status">Статус:</th><td class="status">Закрыт</td><th class="start-date">Начата:</th><td class="start-date">12.06.2014</td></tr><tr><th class="priority">Приоритет:</th><td class="priority">Нормальный</td><th class="due-date">Дата выполнения:</th><td class="due-date"></td></tr><tr><th class="assigned-to">Назначена:</th><td class="assigned-to"><img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #736  Милованов Тимофей. Дополнительные запросы - СУБД    1115 - Redmine_files/02451d2ce44fd698d3af04af5766063d" ssl="false" title=""><a href="https://isc.tsu.ru/redmine/users/108" class="user active">Тимофей Милованов</a></td><th class="progress">Готовность:</th><td class="progress"><table class="progress progress-100" style="width: 80px;"><tbody><tr><td class="closed" style="width: 100%;"></td></tr></tbody></table><p class="percent">100%</p></td></tr><tr><th class="category">Категория:</th><td class="category">-</td><th class="spent-time">Затраченное время:</th><td class="spent-time">-</td></tr><tr><th class="fixed-version">Версия:</th><td class="fixed-version">-</td><th></th><td></td></tr>
+
+
+</tbody></table>
+
+<hr>
+<div class="description">
+  <div class="contextual">
+  <a href="https://isc.tsu.ru/redmine/issues/736/quoted" class="icon icon-comment" data-method="post" data-remote="true" rel="nofollow">Цитировать</a>
+  </div>
+
+  <p><strong>Описание</strong></p>
+  <div class="wiki">
+  <p>11. Для каждой пары (капитан команды, место проведения слёта) можно определить суммарное количество баллов, которое заработали команды этого капитана в слётах, проводимых в этом месте. Требуется для каждого капитана определить наибольшую сумму баллов по всем местам проведения слётов.<br>Вывод:  Капитан, Наибольшая сумма баллов<br>12. Найти людей, которые побывали во всех районах, но не учавствовали ни в одном соревновании.<br>Вывод: ФИО человека, Возраст человека, Спортивный разряд<br>13. Для каждой команды известна дата её создания. Можно посчитать сколько других команд было создано раньше чем рассматриваемая команда. Для каждой команды нужно найти сколько других команд было создано раньше. Если это количество превышает 75% от общего числа команд, то рассматриваемой команде присвоить статус "новички". Если от 25% до 75%, то присвоить статус "основной состав". Если менее 25%, то присвоить статус "старожилы" <br>Вывод: Название команды, Капитан команды, Найденный статус.<br>14. Для каждого района найти всех людей, которые были там чаще остальных.<br>Вывод: Название района, ФИО человека, Количество раз, которое этот человек был в этом районе<br>15. Найти людей, для которых выполнено по крайней мере 4 условия из приведённых 5-ти<br>а) мужчина старше 20 лет<br>б) побывал в каком-либо походе в Китае<br>в) участвовал в какой-либо команде, занимавшей призовые места (т.е. места с 3-го по 1-ое)<br>г) побывал не менее чем в 10 районах<br>д) провёл в походах в горы в общей сложности не менее 30 дней<br>Вывод: ФИО<br>16. Найти людей, которые побывали в походах на всех типах рельефа.<br>Вывод: ФИО, Возраст, Пол<br>17. Для каждого похода сформировать строку следующего вида. "Поход, начавшийся ДАТА_НАЧАЛА_ПОХОДА в район НАЗВАНИЕ_РАЙОНА, находящийся в стране СТРАНА проходил под руководством РУКОВОДИТЕЛЬ. В походе приняли участие КОЛИЧЕСТВО человек из них КОЛИЧЕСТВО_ЖЕНЩИН женщины и КОЛИЧЕСТВО_МУЖЧИН мужчины. В походе учавствовал фотограф, принимавший участие ещё в КОЛИЧЕСТВО_ПОХОДОВ походах. Закончился поход ДАТА_ОКОНЧАНИЯ". Здесь заглавными буквами приведены значения, которые требуется взять из БД<br>Вывод: Сформированные строки<br>18. Найти все пары команд (i, j), которые соревновались друг с другом. Причём если пара (i, j) найдена, то пару (j, i) искать не нужно)<br>Вывод: Название i-ой команды, Капитан i-ой команды, Дата создания i-ой команды, Название j-ой команды, Капитан j-ой команды, Дата создания j-ой команды.<br>19. В 11 запросе для каждого капитана было найдено некоторое значение. Требуется, определив диапазон этих значений разбить его на 3 равных промежутка. И для каждого промежутка определить количество капитанов со значениями из этого промежутка<br>Вывод: Определённый промежуток, Количество капитанов</p>
+  </div>
+</div>
+
+
+
+
+
+
+</div>
+
+
+<div id="history">
+<h3>История</h3>
+  <div id="change-2200" class="journal has-notes">
+    <div id="note-1">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/736#note-1" class="journal-link">#1</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #736  Милованов Тимофей. Дополнительные запросы - СУБД    1115 - Redmine_files/02451d2ce44fd698d3af04af5766063d(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/108" class="user active">Тимофей Милованов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-06-13" title="13.06.2014 18:31">12 месяца</a> назад</h4>
+
+    <div class="wiki" id="journal-2200-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/736/quoted?journal_id=2200" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><p><strong>Запрос 11</strong><br></p><pre>SELECT head, max(sum_of_points)
+FROM (
+      SELECT f.place, head, SUM(r.points) AS sum_of_points
+      FROM command c INNER JOIN competition co INNER JOIN fest f INNER JOIN result r
+           ON co.command_id = c.id
+              AND co.fest_id = f.id
+              AND co.result_id = r.id
+      GROUP BY head, f.place
+     ) subq
+GROUP BY head;
+</pre><p></p></div>
+    </div>
+  </div>
+  
+  <div id="change-2201" class="journal has-notes">
+    <div id="note-2">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/736#note-2" class="journal-link">#2</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #736  Милованов Тимофей. Дополнительные запросы - СУБД    1115 - Redmine_files/02451d2ce44fd698d3af04af5766063d(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/108" class="user active">Тимофей Милованов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-06-13" title="13.06.2014 19:27">12 месяца</a> назад</h4>
+
+    <div class="wiki" id="journal-2201-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/736/quoted?journal_id=2201" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><p><strong>Запрос 12</strong><br></p><pre>SELECT name, sport_grade, age FROM
+(SELECT name, sport_grade, year(now())-year(birthday) as age
+FROM
+person p INNER JOIN was w INNER JOIN area a
+ON w.person_id = p.id
+   AND w.area_id = a.id
+GROUP BY name
+HAVING count(distinct a.title)=(select count(distinct id) from area)
+) sub1
+LEFT JOIN
+(SELECT name as n
+FROM
+person p INNER JOIN participate pr INNER JOIN command c INNER JOIN competition co
+ON pr.person_id = p.id
+   AND pr.command_id = c.id
+   AND co.command_id = c.id
+) sub2 ON sub1.name = sub2.n
+WHERE sub2.n IS NULL;
+</pre><p></p></div>
+    </div>
+  </div>
+  
+  <div id="change-2202" class="journal has-notes">
+    <div id="note-3">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/736#note-3" class="journal-link">#3</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #736  Милованов Тимофей. Дополнительные запросы - СУБД    1115 - Redmine_files/02451d2ce44fd698d3af04af5766063d(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/108" class="user active">Тимофей Милованов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-06-16" title="16.06.2014 23:19">11 месяца</a> назад</h4>
+
+    <div class="wiki" id="journal-2202-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/736/quoted?journal_id=2202" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><p><strong>Запрос 13</strong><br></p><pre>SELECT s5.title, s5.head, if(ct&gt;(@alls:=(SELECT count(distinct id) FROM command))*0.75, "Новички", if(ct&gt;=@alls*0.25, "Основной состав", "Старожилы")) AS status FROM
+(   
+        SELECT s2.title, s2.head, count(distinct s1.id) as ct FROM
+            (SELECT id, head, title, creation_time FROM command) AS s1
+            INNER JOIN 
+            (SELECT head, title, creation_time FROM command) AS s2
+            ON s1.creation_time &lt; s2.creation_time
+            GROUP BY s2.creation_time
+        UNION
+        SELECT * FROM (SELECT title, head FROM command WHERE creation_time=(SELECT MIN(creation_time) FROM command)) s1 INNER JOIN (SELECT 0 as ct) s2
+) s5;
+</pre><p></p></div>
+    </div>
+  </div>
+  
+  <div id="change-2203" class="journal has-notes">
+    <div id="note-4">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/736#note-4" class="journal-link">#4</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #736  Милованов Тимофей. Дополнительные запросы - СУБД    1115 - Redmine_files/02451d2ce44fd698d3af04af5766063d(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/108" class="user active">Тимофей Милованов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-06-17" title="17.06.2014 12:52">11 месяца</a> назад</h4>
+
+    <div class="wiki" id="journal-2203-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/736/quoted?journal_id=2203" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><p><strong>Запрос 15</strong><br></p><pre>SELECT name, title, max(w_count) as was_count
+FROM
+    (
+     SELECT p.id, name, title, count(p.id) as w_count
+     FROM person p INNER JOIN was w INNER JOIN area a 
+     ON w.person_id=p.id AND w.area_id = a.id
+     GROUP BY title, name
+    ) s1
+GROUP BY title;
+</pre><p></p></div>
+    </div>
+  </div>
+  
+  <div id="change-2204" class="journal has-notes">
+    <div id="note-5">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/736#note-5" class="journal-link">#5</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #736  Милованов Тимофей. Дополнительные запросы - СУБД    1115 - Redmine_files/02451d2ce44fd698d3af04af5766063d(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/108" class="user active">Тимофей Милованов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-06-17" title="17.06.2014 14:25">11 месяца</a> назад</h4>
+
+    <div class="wiki" id="journal-2204-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/736/quoted?journal_id=2204" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><p><strong>Запрос 16</strong><br></p><pre>SELECT name, title, relief_type 
+FROM person p INNER JOIN goes g INNER JOIN hike h INNER JOIN area a
+ON g.person_id = p.id
+   AND g.hike_id = h.id
+   AND h.area_id = a.id
+GROUP BY name HAVING count(distinct relief_type)=(SELECT count(distinct relief_type) FROM area);
+</pre><p></p></div>
+    </div>
+  </div>
+  
+  <div id="change-2209" class="journal has-notes">
+    <div id="note-6">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/736#note-6" class="journal-link">#6</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #736  Милованов Тимофей. Дополнительные запросы - СУБД    1115 - Redmine_files/02451d2ce44fd698d3af04af5766063d(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/108" class="user active">Тимофей Милованов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-06-17" title="17.06.2014 15:50">11 месяца</a> назад</h4>
+
+    <div class="wiki" id="journal-2209-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/736/quoted?journal_id=2209" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><p><strong>Запрос 15</strong> (Предыдущий запрос 15 - это запрос 14)<br></p><pre>SELECT pr.id, name, cond FROM person pr
+INNER JOIN
+(
+    SELECT SUBP.id,
+    if(year(now())-year(birthday)&gt;20,1,0)
+
+    +if(EXISTS
+        (
+        SELECT * FROM goes g INNER JOIN hike h INNER JOIN area a ON g.hike_id=h.id AND h.area_id=a.id
+        WHERE g.person_id=SUBP.id
+              AND a.country='china'
+        ),1,0
+       )
+
+    +if(EXISTS
+        (
+        SELECT *
+        FROM participate p INNER JOIN command c INNER JOIN competition cp INNER JOIN result r
+        ON p.command_id=c.id AND cp.command_id=c.id AND r.id=cp.result_id
+        WHERE p.person_id=SUBP.id and r.place&lt;4
+        ),1,0
+       )
+
+    +if(EXISTS
+        (
+        SELECT w.person_id, count(distinct a.id) AS h_count
+        FROM was w INNER JOIN area a ON w.area_id=a.id
+        GROUP BY person_id
+        HAVING person_id=SUBP.id AND h_count&gt;10
+        ),1,0
+       )
+
+    +if(EXISTS
+        (
+        SELECT g.person_id, sum(datediff(begin, end)) as days, h.id
+        FROM goes g INNER JOIN hike h INNER JOIN area a
+        ON g.hike_id = h.id
+           AND h.area_id=a.id
+        GROUP BY person_id, relief_type
+        HAVING person_id=SUBP.id
+              AND
+              relief_type='mountain'
+              AND
+              days&gt;=30
+        ),1,0
+       )
+
+    as cond FROM person AS SUBP
+) AS s1
+ON pr.id=s1.id
+WHERE cond&gt;3;
+</pre><p></p></div>
+    </div>
+  </div>
+  
+  <div id="change-2210" class="journal has-notes">
+    <div id="note-7">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/736#note-7" class="journal-link">#7</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #736  Милованов Тимофей. Дополнительные запросы - СУБД    1115 - Redmine_files/02451d2ce44fd698d3af04af5766063d(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/108" class="user active">Тимофей Милованов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-06-17" title="17.06.2014 23:57">11 месяца</a> назад</h4>
+
+    <div class="wiki" id="journal-2210-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/736/quoted?journal_id=2210" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><p><strong>Запрос 17</strong><br></p><pre>SELECT CONCAT("Поход, начавшийся ",s1.begin," в район ",s1.title,", находящийся в стране ",s1.country," проходил под руководством ",s1.head,". В походе приняли участие ",s1.pc," человек из них ",FLOOR(s1.fc)," женщины и ",s1.mc," мужчины. В походе учавствовал фотограф, принимавший участие ещё в ",IF(s1.s2 is NULL,0,s1.s2)," походах. Закончился поход ",s1.end,".") as description
+FROM
+(
+    (
+    SELECT h.begin, h.end, a.title, a.country, h.head, h.photographer,
+           @c:=count(distinct p.id) as pc, @male:=sum(p.sex) as mc, @c-@male as fc,
+           (
+            SELECT count(distinct gs.hike_id)
+            FROM
+            person pr INNER JOIN goes gs
+            ON gs.person_id=pr.id
+            GROUP BY pr.name
+            HAVING pr.name=h.photographer
+           ) AS s2
+    FROM 
+    person p INNER JOIN goes g INNER JOIN hike h INNER JOIN area a
+    ON g.person_id = p.id
+       AND g.hike_id = h.id
+       AND h.area_id = a.id
+    GROUP BY h.id
+    ) AS s1
+);
+</pre><p></p></div>
+    </div>
+  </div>
+  
+  <div id="change-2211" class="journal has-notes">
+    <div id="note-8">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/736#note-8" class="journal-link">#8</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #736  Милованов Тимофей. Дополнительные запросы - СУБД    1115 - Redmine_files/02451d2ce44fd698d3af04af5766063d(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/108" class="user active">Тимофей Милованов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-06-17" title="18.06.2014 01:15">11 месяца</a> назад</h4>
+
+    <div class="wiki" id="journal-2211-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/736/quoted?journal_id=2211" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><p><strong>Запрос 18</strong><br></p><pre>SELECT s1.c1t, s1.c1h, s1.c1ct, cm.title as c2t, cm.head as c2h, cm.creation_time as c2ct
+FROM
+    (SELECT cm.title as c1t, cm.head as c1h, cm.creation_time as c1ct, cm.id as c1, fest_id
+    FROM command cm INNER JOIN competition cp
+    ON cp.command_id = cm.id
+    ) AS s1
+    INNER JOIN
+    (
+    SELECT command_id as c2, fest_id
+    FROM
+    competition c
+    ) AS s2
+    INNER JOIN
+    command cm
+    ON s2.fest_id = s1.fest_id
+       AND s1.c1 &lt; s2.c2
+       AND cm.id=s2.c2
+GROUP BY c1t,c2t;
+
+</pre><p></p></div>
+    </div>
+  </div>
+  
+  <div id="change-2212" class="journal has-notes">
+    <div id="note-9">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/736#note-9" class="journal-link">#9</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #736  Милованов Тимофей. Дополнительные запросы - СУБД    1115 - Redmine_files/02451d2ce44fd698d3af04af5766063d(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/108" class="user active">Тимофей Милованов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-06-17" title="18.06.2014 02:11">11 месяца</a> назад</h4>
+
+    <div class="wiki" id="journal-2212-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/736/quoted?journal_id=2212" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><p><strong>Запрос 19</strong><br></p><pre>SELECT grup, count(distinct head) as captains_count
+FROM (
+      SELECT head,
+      if(sp2&gt;=bottom and sp2&lt;b1,concat("[",bottom,";",b1,")"),if(sp2&gt;=b1 and sp2&lt;b2, concat("[",b1,";",b2,")"), concat("[",b2,";",top,")"))) as grup
+      FROM (
+            SELECT @mn:=min(sp) as bottom, @mx:=max(sp) as top, FLOOR(@mn+@step:=FLOOR((@mx-@mn)/3)) as b1, FLOOR(@mx-@step) as b2
+            FROM (
+                  SELECT head, max(sum_of_points) as sp
+                  FROM (
+                        SELECT f.place, head, SUM(r.points) AS sum_of_points
+                        FROM command c INNER JOIN competition co INNER JOIN fest f INNER JOIN result r
+                        ON co.command_id = c.id
+                        AND co.fest_id = f.id
+                        AND co.result_id = r.id
+                  GROUP BY head, f.place
+                  ) subq
+            GROUP BY head
+            ) AS s1
+      ) AS s2,
+     (
+      SELECT head, max(sum_of_points) as sp2
+      FROM (
+            SELECT f.place, head, SUM(r.points) AS sum_of_points
+            FROM command c INNER JOIN competition co INNER JOIN fest f INNER JOIN result r
+            ON co.command_id = c.id
+            AND co.fest_id = f.id
+            AND co.result_id = r.id
+            GROUP BY head, f.place
+          ) subq
+      GROUP BY head
+    ) AS s3
+) AS s4
+GROUP by grup;
+</pre><p></p></div>
+    </div>
+  </div>
+  
+  <div id="change-2225" class="journal has-notes has-details">
+    <div id="note-10">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/736#note-10" class="journal-link">#10</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #736  Милованов Тимофей. Дополнительные запросы - СУБД    1115 - Redmine_files/637dc6a3b52b0db7b2ca2a71734c1386(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/95" class="user active">Иван Иванович Худяшов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-09-17" title="17.09.2014 16:09">8 месяца</a> назад</h4>
+
+    <ul class="details">
+       <li>Параметр <strong>Статус</strong> изменился с <i>Новый</i> на <i>Закрыт</i></li>
+       <li>Параметр <strong>Готовность</strong> изменился с <i>0</i> на <i>100</i></li>
+    </ul>
+    <div class="wiki" id="journal-2225-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/736/quoted?journal_id=2225" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><p><strong>Дополнительные запросы зачтены</strong><br><strong>Зачёт по СУБД получен</strong></p></div>
+    </div>
+  </div>
+  
+
+
+</div>
+
+
+<div style="clear: both;"></div>
+<div class="contextual">
+<a href="https://isc.tsu.ru/redmine/issues/736/edit" class="icon icon-edit" onclick="showAndScrollTo(&quot;update&quot;, &quot;issue_notes&quot;); return false;">Редактировать</a>
+
+<a href="https://isc.tsu.ru/redmine/watchers/watch?object_id=736&object_type=issue" class="issue-736-watcher icon icon-fav-off" data-method="post" data-remote="true" rel="nofollow">Следить</a>
+
+
+</div>
+
+
+<div style="clear: both;"></div>
+  <div id="update" style="display:none;">
+  <h3>Редактировать</h3>
+  <form accept-charset="UTF-8" action="./Улучшение #736  Милованов Тимофей. Дополнительные запросы - СУБД    1115 - Redmine_files/Улучшение #736  Милованов Тимофей. Дополнительные запросы - СУБД    1115 - Redmine.html" class="edit_issue" enctype="multipart/form-data" id="issue-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="_method" type="hidden" value="put"><input name="authenticity_token" type="hidden" value="wwqSTLf4mqZLo0QNQafVXERL8eLETyktHoBWx/WLkoI="></div>
+    
+    
+    <div class="box">
+
+    <fieldset><legend>Примечания</legend>
+    <div class="jstElements"><button type="button" tabindex="200" class="jstb_strong" title="Жирный"><span>Жирный</span></button><button type="button" tabindex="200" class="jstb_em" title="Курсив"><span>Курсив</span></button><button type="button" tabindex="200" class="jstb_ins" title="Подчеркнутый"><span>Подчеркнутый</span></button><button type="button" tabindex="200" class="jstb_del" title="Зачеркнутый"><span>Зачеркнутый</span></button><button type="button" tabindex="200" class="jstb_code" title="Вставка кода"><span>Вставка кода</span></button><span id="space1" class="jstSpacer">&nbsp;</span><button type="button" tabindex="200" class="jstb_h1" title="Заголовок 1"><span>Заголовок 1</span></button><button type="button" tabindex="200" class="jstb_h2" title="Заголовок 2"><span>Заголовок 2</span></button><button type="button" tabindex="200" class="jstb_h3" title="Заголовок 3"><span>Заголовок 3</span></button><span id="space2" class="jstSpacer">&nbsp;</span><button type="button" tabindex="200" class="jstb_ul" title="Маркированный список"><span>Маркированный список</span></button><button type="button" tabindex="200" class="jstb_ol" title="Нумерованный список"><span>Нумерованный список</span></button><span id="space3" class="jstSpacer">&nbsp;</span><button type="button" tabindex="200" class="jstb_bq" title="Цитата"><span>Цитата</span></button><button type="button" tabindex="200" class="jstb_unbq" title="Удалить цитату"><span>Удалить цитату</span></button><button type="button" tabindex="200" class="jstb_pre" title="Заранее форматированный текст"><span>Заранее форматированный текст</span></button><span id="space4" class="jstSpacer">&nbsp;</span><button type="button" tabindex="200" class="jstb_link" title="Ссылка на страницу в Wiki"><span>Ссылка на страницу в Wiki</span></button><button type="button" tabindex="200" class="jstb_img" title="Вставка изображения"><span>Вставка изображения</span></button><span id="space5" class="jstSpacer">&nbsp;</span><button type="button" tabindex="200" class="jstb_help" title="Help"><span>Help</span></button></div><div class="jstEditor"><textarea class="wiki-edit" cols="60" id="issue_notes" name="issue[notes]" rows="10"></textarea></div>
+    <script type="text/javascript">
+//<![CDATA[
+var wikiToolbar = new jsToolBar(document.getElementById('issue_notes')); wikiToolbar.setHelpLink('/redmine/help/ru/wiki_syntax.html'); wikiToolbar.draw();
+//]]>
+</script>
+
+
+    
+    </fieldset>
+
+    <fieldset><legend>Файлы</legend>
+    <p><span id="attachments_fields">
+</span>
+<span class="add_attachment">
+<input class="file_selector" data-description-placeholder="Описание (необязательно)" data-max-concurrent-uploads="2" data-max-file-size-message="Этот файл нельзя загрузить из-за превышения максимального размера файла (19,531 МБ)" data-max-file-size="20480000" data-upload-path="/redmine/uploads.js" multiple="multiple" name="attachments[dummy][file]" onchange="addInputFiles(this);" type="file">
+(Максимальный размер: 19,531 МБ)
+</span>
+
+</p>
+    </fieldset>
+    </div>
+
+    <input id="issue_lock_version" name="issue[lock_version]" type="hidden" value="10">
+    <input id="last_journal_id" name="last_journal_id" type="hidden" value="2225">
+    <input name="commit" type="submit" value="Принять">
+    <a accesskey="r" href="https://isc.tsu.ru/redmine/issues/736#" onclick="submitPreview(&quot;/redmine/issues/preview/edit/736?project_id=students-lab-db-1115&quot;, &quot;issue-form&quot;, &quot;preview&quot;); return false;">Предпросмотр</a>
+</form>
+<div id="preview" class="wiki"></div>
+
+  </div>
+
+<p class="other-formats">Экспортировать в  <span><a href="https://isc.tsu.ru/redmine/issues/736.atom?key=5c8c59dab0896b92e454f7be1b425a8aee228d19" class="atom" rel="nofollow">Atom</a></span>
+  <span><a href="https://isc.tsu.ru/redmine/issues/736.pdf" class="pdf" rel="nofollow">PDF</a></span>
+</p>
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+contextMenuInit('/redmine/issues/context_menu')
+//]]>
+</script><div id="context-menu" style="display:none;"></div>
+
+        
+        <div style="clear:both;"></div>
+    </div>
+</div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Загрузка...</span></div>
+<div id="ajax-modal" style="display:none;"></div>
+
+<div id="footer">
+  <div class="bgl"><div class="bgr">
+    Powered by <a href="http://www.redmine.org/">Redmine</a> © 2006-2014 Jean-Philippe Lang
+  </div></div>
+</div>
+</div>
+</div>
+
+
+
+</body></html>

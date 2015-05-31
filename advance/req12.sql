@@ -3,7 +3,7 @@
 
 
 
-
+#Done
 
 select newt.id as Order_id, _order.submission_date
 		 #таблица идентификаторов заказа и число их услуг

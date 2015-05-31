@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://isc.tsu.ru/redmine/issues/733 -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Улучшение #733: Сафонов Вадим. Дополнительные запросы - СУБД :: 1115 - Redmine</title>
+<meta name="description" content="Redmine">
+<meta name="keywords" content="issue,bug,tracker">
+<meta content="authenticity_token" name="csrf-param">
+<meta content="wwqSTLf4mqZLo0QNQafVXERL8eLETyktHoBWx/WLkoI=" name="csrf-token">
+<link rel="shortcut icon" href="https://isc.tsu.ru/redmine/favicon.ico?1396112202">
+<link href="https://isc.tsu.ru/redmine/stylesheets/jquery/jquery-ui-1.9.2.css?1396112202" media="all" rel="stylesheet" type="text/css">
+<link href="https://isc.tsu.ru/redmine/stylesheets/application.css?1396112202" media="all" rel="stylesheet" type="text/css">
+
+<script src="https://isc.tsu.ru/redmine/javascripts/jquery-1.8.3-ui-1.9.2-ujs-2.0.3.js?1396112202" type="text/javascript"></script>
+<script src="https://isc.tsu.ru/redmine/javascripts/application.js?1396112202" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(window).load(function(){ warnLeavingUnsaved('Текущая страница содержит несохранённый текст, который будет потерян, если вы покинете эту страницу.'); });
+//]]>
+</script>
+
+
+<!-- page specific tags -->
+<script src="https://isc.tsu.ru/redmine/javascripts/jstoolbar/jstoolbar-textile.min.js?1396112202" type="text/javascript"></script><script src="https://isc.tsu.ru/redmine/javascripts/jstoolbar/lang/jstoolbar-ru.js?1396112202" type="text/javascript"></script><link href="https://isc.tsu.ru/redmine/stylesheets/jstoolbar.css?1396112202" media="screen" rel="stylesheet" type="text/css">  <script src="https://isc.tsu.ru/redmine/javascripts/attachments.js?1396112202" type="text/javascript"></script>
+    <link href="http://redmine_thin_cluster/redmine/issues/733.atom?key=5c8c59dab0896b92e454f7be1b425a8aee228d19" rel="alternate" title="СУБД :: 1115 - Улучшение #733: Сафонов Вадим. Дополнительные запросы" type="application/atom+xml">
+<script src="https://isc.tsu.ru/redmine/javascripts/context_menu.js?1396112202" type="text/javascript"></script><link href="https://isc.tsu.ru/redmine/stylesheets/context_menu.css?1396112202" media="screen" rel="stylesheet" type="text/css"></head>
+<body class="project-students-lab-db-1115 controller-issues action-show">
+<div id="wrapper">
+<div id="wrapper2">
+<div id="wrapper3">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a href="https://isc.tsu.ru/redmine/my/account" class="my-account">Моя учётная запись</a></li>
+<li><a href="https://isc.tsu.ru/redmine/logout" class="logout" data-method="post" rel="nofollow">Выйти</a></li></ul>    </div>
+    <div id="loggedas">Вошли как <a href="https://isc.tsu.ru/redmine/users/116" class="user active">s15-14</a></div>
+    <ul><li><a href="https://isc.tsu.ru/redmine" class="home">Домашняя страница</a></li>
+<li><a href="https://isc.tsu.ru/redmine/my/page" class="my-page">Моя страница</a></li>
+<li><a href="https://isc.tsu.ru/redmine/projects" class="projects">Проекты</a></li>
+<li><a href="http://www.redmine.org/guide" class="help">Помощь</a></li></ul></div>
+
+<div id="header">
+    <div id="quick-search">
+        <form accept-charset="UTF-8" action="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+        <input name="issues" type="hidden" value="1">
+        <label for="q">
+          <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/search" accesskey="4">Поиск</a>:
+        </label>
+        <input accesskey="f" class="small" id="q" name="q" size="20" type="text">
+</form>        <select id="project_quick_jump_box" name="project_quick_jump_box" onchange="if (this.value != &#39;&#39;) { window.location = this.value; }"><option value="">Перейти к проекту...</option><option value="" disabled="disabled">---</option><option selected="selected" value="/redmine/projects/students-lab-db-1115?jump=issues">СУБД :: 1115</option><option value="/redmine/projects/students-lab-db-1125?jump=issues">СУБД :: 1125</option><option value="/redmine/projects/os-seminars?jump=issues">Операционные системы. Осень 2014</option><option value="/redmine/projects/work-on-ettercap?jump=issues">Работа над Ettercap</option></select>
+    </div>
+
+    <h1>СУБД :: 1115</h1>
+
+    <div id="main-menu">
+        <ul><li><a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115" class="overview">Обзор</a></li>
+<li><a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity" class="activity">Действия</a></li>
+<li><a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/issues" class="issues selected">Задачи</a></li>
+<li><a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/news" class="news">Новости</a></li>
+<li><a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/documents" class="documents">Документы</a></li>
+<li><a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/wiki" class="wiki">Wiki</a></li>
+<li><a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/files" class="files">Файлы</a></li></ul>
+    </div>
+</div>
+
+<div id="main" class="">
+    <div id="sidebar">
+          <h3>Задачи</h3>
+
+<ul>
+<li><a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/issues?set_filter=1">Просмотреть все задачи</a></li>
+<li><a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/issues/report">Краткое описание</a></li>
+
+</ul>
+
+
+
+
+
+
+
+
+
+        
+    </div>
+
+    <div id="content">
+        
+        <div class="contextual">
+<a href="https://isc.tsu.ru/redmine/issues/733/edit" accesskey="e" class="icon icon-edit" onclick="showAndScrollTo(&quot;update&quot;, &quot;issue_notes&quot;); return false;">Редактировать</a>
+
+<a href="https://isc.tsu.ru/redmine/watchers/watch?object_id=733&object_type=issue" class="issue-733-watcher icon icon-fav-off" data-method="post" data-remote="true" rel="nofollow">Следить</a>
+
+
+</div>
+
+
+<h2>Улучшение #733</h2>
+
+<div class="issue tracker-2 status-5 priority-4 priority-default closed details">
+    <div class="next-prev-links contextual">
+      <a href="https://isc.tsu.ru/redmine/issues/730" title="#730">« Предыдущее</a> |
+        <span class="position">36/65</span> |
+      <a href="https://isc.tsu.ru/redmine/issues/728" title="#728">Следующее »</a>
+    </div>
+
+  <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #733  Сафонов Вадим. Дополнительные запросы - СУБД    1115 - Redmine_files/637dc6a3b52b0db7b2ca2a71734c1386" ssl="false" title="">
+
+<div class="subject">
+<div><h3>Сафонов Вадим. Дополнительные запросы</h3></div>
+</div>
+        <p class="author">
+        Добавил(а) <a href="https://isc.tsu.ru/redmine/users/95" class="user active">Иван Иванович Худяшов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-05-26" title="26.05.2014 18:23">около 1 года</a> назад.
+        Обновлено <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-06-08" title="09.06.2014 00:15">12 месяца</a> назад.
+        </p>
+
+<table class="attributes">
+<tbody><tr><th class="status">Статус:</th><td class="status">Закрыт</td><th class="start-date">Начата:</th><td class="start-date">26.05.2014</td></tr><tr><th class="priority">Приоритет:</th><td class="priority">Нормальный</td><th class="due-date">Дата выполнения:</th><td class="due-date">09.06.2014</td></tr><tr><th class="assigned-to">Назначена:</th><td class="assigned-to"><img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #733  Сафонов Вадим. Дополнительные запросы - СУБД    1115 - Redmine_files/6ba5f779394158731c03fa5315a40983" ssl="false" title=""><a href="https://isc.tsu.ru/redmine/users/121" class="user active">Вадим Сафонов</a></td><th class="progress">Готовность:</th><td class="progress"><table class="progress progress-100" style="width: 80px;"><tbody><tr><td class="closed" style="width: 100%;"></td></tr></tbody></table><p class="percent">100%</p></td></tr><tr><th class="category">Категория:</th><td class="category">-</td><th class="spent-time">Затраченное время:</th><td class="spent-time">-</td></tr><tr><th class="fixed-version">Версия:</th><td class="fixed-version">-</td><th></th><td></td></tr>
+
+
+</tbody></table>
+
+<hr>
+<div class="description">
+  <div class="contextual">
+  <a href="https://isc.tsu.ru/redmine/issues/733/quoted" class="icon icon-comment" data-method="post" data-remote="true" rel="nofollow">Цитировать</a>
+  </div>
+
+  <p><strong>Описание</strong></p>
+  <div class="wiki">
+  <p>11. Для каждой пары (Работодатель, Фрилансер) можно посчитать количество сообщений которыми они обменялись. Для каждого из таких количеств посчитать сумму числа различных работодателей и числа различных фрилансеров, соответствующих этому количеству.<br>Вывод: Количество сообщений, Сумма числа работодателей и фрилансеров<br>12. Найти фрилансеров, которым соотвествуют все способности, но которым ни разу не отправлялись сообщения.<br>Вывод: ФИО фрилансера<br>13. Для каждого работодателя можно посчитать количество сообщений, которые он написал. Для каждого работодателя найти сколько есть других работодателей, которые написали большее чем он количество сообщений. Если число найденных других работодателей менее 50% от общего количества,  то для рассматриваемого работодателя вывести сообщение "активный спамер", иначе - "умеренный спамер.<br>Вывод: Имя пользователя-работодателя, Найденная строка<br>14. Найти все объявления к которым было написано максимальное количество комментариев.<br>Вывод: Заголовок объявления, Идентификатор работодателя написавшего объявление<br>15. Найти работодателей, для которых выполнено по крайней мере 4 из следующих 5 условий:<br>а) есть email в зоне tsu.ru<br>б) работодатель писал сообщение по крайней мере 5 пользователям старше 30 лет<br>в) есть хотя бы по одному комментарию к объявлениям которые он писал<br>г) есть объявление, которое прокомментировало не менее 5 пользователей<br>д) работодатель писал сообщение пользователям из Томска<br>Вывод: Имя пользователя-работодателя<br>16. Найти работодателя, который писал всем фрилансерам.<br>Вывод: Имя пользователя-работодателя<br>17. Для каждого фрилансера вывести строку следующего вида. "Фрилансер ФАМИЛИЯ ИМЯ ОТЧЕСТВО родился в ГОД РОЖДЕНИЯ году. В настоящий момент проживает в городе ГОРОД. Имеет КОЛИЧЕСТВО СПОСОБНОСТЕЙ способностей, из них наибольший стаж был получен в МЕСТО ОБУЧЕНИЯ С НАИБОЛЬШИМ СТАЖЕМ. Фрилансер переписывается с КОЛИЧЕСТВО-РАБОТОДАТЕЛЕЙ работодателями, при этом наибольшее число сообщений было получено от ИМЯ КОМПАНИИ" <br>18. Найти все пары пользователей, которые написали одинаковое количество комментариев. Причём выводить нужно без повторов, т.е. если пара (i,j) выведена, то пару (j,i) выводить не нужно.<br>Вывод: Имя пользователя-фрилансера i, Имя пользователя-фрилансера j<br>19. В 11 запросе для каждого из количеств сообщений было найденное некоторое число. Необходимо найти количества для которых это число больше среднего значения.<br>Вывод: Количество сообщений</p>
+  </div>
+</div>
+
+
+
+
+
+
+</div>
+
+
+<div id="history">
+<h3>История</h3>
+  <div id="change-2129" class="journal has-notes">
+    <div id="note-1">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/733#note-1" class="journal-link">#1</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #733  Сафонов Вадим. Дополнительные запросы - СУБД    1115 - Redmine_files/6ba5f779394158731c03fa5315a40983(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/121" class="user active">Вадим Сафонов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-05-30" title="30.05.2014 16:03">12 месяца</a> назад</h4>
+
+    <div class="wiki" id="journal-2129-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/733/quoted?journal_id=2129" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><pre>SELECT fs.first_name, fs.surname, fs.patronymic
+FROM
+(
+    SELECT f.id, f.first_name, f.surname, f.patronymic
+    FROM freelancer f
+    INNER JOIN skill s ON s.id_freelancer = f.id
+    GROUP BY f.id HAVING COUNT(s.name) = ( SELECT COUNT(*) FROM skill s )
+) AS fs
+WHERE NOT EXISTS
+(
+    SELECT *
+    FROM sending_message
+    WHERE id_freelancer = fs.id
+);
+</pre><br>Запрос 12.</div>
+    </div>
+  </div>
+  
+  <div id="change-2135" class="journal has-notes">
+    <div id="note-2">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/733#note-2" class="journal-link">#2</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #733  Сафонов Вадим. Дополнительные запросы - СУБД    1115 - Redmine_files/6ba5f779394158731c03fa5315a40983(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/121" class="user active">Вадим Сафонов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-05-31" title="31.05.2014 18:38">12 месяца</a> назад</h4>
+
+    <div class="wiki" id="journal-2135-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/733/quoted?journal_id=2135" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><pre>SELECT res.login, IF(@rowpos/2 &lt; res.row_position, "активный спамер", "умеренный спамер") AS status
+FROM
+(
+    SELECT @rowpos:=@rowpos+1 AS row_position, ems.login
+    FROM
+    (
+    SELECT e.login, COUNT(sm.id) AS ctr
+    FROM employer e    
+    INNER JOIN sending_message sm ON sm.id_employer = e.id
+    GROUP BY e.id ORDER BY COUNT(sm.id)
+    ) AS ems, (SELECT @rowpos:=0) AS rp
+) AS res;
+</pre><br>Запрос 13.</div>
+    </div>
+  </div>
+  
+  <div id="change-2136" class="journal has-notes">
+    <div id="note-3">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/733#note-3" class="journal-link">#3</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #733  Сафонов Вадим. Дополнительные запросы - СУБД    1115 - Redmine_files/6ba5f779394158731c03fa5315a40983(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/121" class="user active">Вадим Сафонов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-05-31" title="31.05.2014 19:18">12 месяца</a> назад</h4>
+
+    <div class="wiki" id="journal-2136-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/733/quoted?journal_id=2136" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><pre>SELECT ads.subject, ads.id_employer
+FROM (
+    SELECT a.subject, a.id_employer, COUNT(pc.id_advert) AS cnt
+    FROM advert a
+    INNER JOIN posting_comment pc ON pc.id_advert = a.id
+    GROUP BY a.id
+) AS ads
+WHERE  ads.cnt =
+(
+    SELECT COUNT(pc.id_advert)
+    FROM advert a
+    INNER JOIN posting_comment pc ON pc.id_advert = a.id
+    GROUP BY a.id ORDER BY COUNT(pc.id_advert) DESC LIMIT 1
+);
+</pre>
+
+	<p>Запрос 14.</p></div>
+    </div>
+  </div>
+  
+  <div id="change-2137" class="journal has-notes">
+    <div id="note-4">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/733#note-4" class="journal-link">#4</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #733  Сафонов Вадим. Дополнительные запросы - СУБД    1115 - Redmine_files/6ba5f779394158731c03fa5315a40983(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/121" class="user active">Вадим Сафонов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-05-31" title="31.05.2014 19:30">12 месяца</a> назад</h4>
+
+    <div class="wiki" id="journal-2137-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/733/quoted?journal_id=2137" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><pre>SELECT ms.login
+FROM (
+    SELECT e.login, COUNT(DISTINCT f.id) AS cntm
+    FROM sending_message
+    INNER JOIN employer e ON e.id = id_employer
+    INNER JOIN freelancer f ON f.id = id_freelancer
+    GROUP BY e.id
+) AS ms
+WHERE  ms.cntm =
+(
+    SELECT COUNT(*) FROM freelancer
+)
+LIMIT 1;
+</pre><br>Запрос 16.</div>
+    </div>
+  </div>
+  
+  <div id="change-2138" class="journal has-notes">
+    <div id="note-5">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/733#note-5" class="journal-link">#5</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #733  Сафонов Вадим. Дополнительные запросы - СУБД    1115 - Redmine_files/6ba5f779394158731c03fa5315a40983(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/121" class="user active">Вадим Сафонов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-06-01" title="02.06.2014 00:10">12 месяца</a> назад</h4>
+
+    <div class="wiki" id="journal-2138-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/733/quoted?journal_id=2138" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><pre>SELECT eres.login
+FROM
+(
+    SELECT e.login, 
+    if((SELECT LOCATE('@isc.com', e.email)) != 0, 1, 0)
+
+    +if(
+    (
+    SELECT COUNT(*)
+    FROM sending_message
+    INNER JOIN freelancer f ON f.id = id_freelancer
+    WHERE id_employer = e.id AND TIMESTAMPDIFF(YEAR, f.birth ,curdate()) &gt;= 30
+    ) &gt; 5, 1, 0)
+
+    +if(
+    NOT EXISTS
+    (
+    SELECT *
+    FROM advert a
+    WHERE a.id_employer = e.id AND NOT EXISTS (SELECT * FROM posting_comment WHERE id_advert = a.id)    
+    ), 1, 0) 
+
+    +if(
+    EXISTS
+    (
+    SELECT *
+    FROM advert a
+    WHERE a.id_employer = e.id AND 5 &lt;= (SELECT COUNT(DISTINCT id_freelancer) FROM posting_comment WHERE id_advert = a.id)
+    ), 1, 0)
+
+    +if(
+    EXISTS
+    (
+    SELECT *
+    FROM sending_message sm
+    INNER JOIN freelancer f ON f.id = sm.id_freelancer
+    WHERE sm.id_employer = e.id AND f.city = "Tomsk" 
+    ), 1, 0)
+    AS conditions
+    FROM employer e    
+) AS eres
+WHERE eres.conditions &gt;= 4
+</pre><br>Запрос 15.</div>
+    </div>
+  </div>
+  
+  <div id="change-2139" class="journal has-notes">
+    <div id="note-6">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/733#note-6" class="journal-link">#6</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #733  Сафонов Вадим. Дополнительные запросы - СУБД    1115 - Redmine_files/6ba5f779394158731c03fa5315a40983(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/121" class="user active">Вадим Сафонов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-06-01" title="02.06.2014 01:23">12 месяца</a> назад</h4>
+
+    <div class="wiki" id="journal-2139-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/733/quoted?journal_id=2139" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><pre>SELECT CONCAT("Фрилансер ",f.surname," ",f.first_name," ",f.patronymic,
+" родился в ",year(f.birth)," году. В настоящий момент проживает в городе ",f.city,". Имеет",
+(SELECT COUNT(*) FROM skill s WHERE s.id_freelancer = f.id)," способностей, из них наибольший стаж был получен в ",
+(SELECT s.place_of_studying FROM skill s WHERE s.id_freelancer = f.id ORDER BY s.experience DESC LIMIT 1),
+". Фрилансер переписывается с ", (SELECT COUNT(DISTINCT sm.id_employer) FROM sending_message sm WHERE sm.id_freelancer = f.id),
+" работодателями, при этом наибольшее число сообщений было получено от ",
+(SELECT e.company_name FROM sending_message sm INNER JOIN employer e ON e.id = sm.id_employer
+WHERE sm.id_freelancer = f.id ORDER BY COUNT(DISTINCT e.id) DESC LIMIT 1)
+) AS description FROM freelancer f;
+</pre>
+
+	<p>Запрос 17.</p></div>
+    </div>
+  </div>
+  
+  <div id="change-2140" class="journal has-notes">
+    <div id="note-7">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/733#note-7" class="journal-link">#7</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #733  Сафонов Вадим. Дополнительные запросы - СУБД    1115 - Redmine_files/6ba5f779394158731c03fa5315a40983(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/121" class="user active">Вадим Сафонов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-06-01" title="02.06.2014 01:40">12 месяца</a> назад</h4>
+
+    <div class="wiki" id="journal-2140-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/733/quoted?journal_id=2140" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><p>SELECT f1.login, f2.login<br>FROM freelancer f1<br>INNER JOIN<br>(SELECT * FROM freelancer f2) AS f2 ON f1.id &lt; f2.id<br>WHERE<br>(<br>(SELECT <abbr title="*">COUNT</abbr> FROM sending_message sm WHERE sm.id_freelancer = f1.id)
+=<br>(SELECT <abbr title="*">COUNT</abbr> FROM sending_message sm WHERE sm.id_freelancer = f2.id)<br>)<br>Запрос 18.</p></div>
+    </div>
+  </div>
+  
+  <div id="change-2141" class="journal has-notes">
+    <div id="note-8">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/733#note-8" class="journal-link">#8</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #733  Сафонов Вадим. Дополнительные запросы - СУБД    1115 - Redmine_files/6ba5f779394158731c03fa5315a40983(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/121" class="user active">Вадим Сафонов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-06-01" title="02.06.2014 01:41">12 месяца</a> назад</h4>
+
+    <div class="wiki" id="journal-2141-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/733/quoted?journal_id=2141" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><pre>SELECT f1.login, f2.login
+FROM freelancer f1
+INNER JOIN
+(SELECT * FROM freelancer f2) AS f2 ON f1.id &lt; f2.id
+WHERE
+(
+(SELECT COUNT(*) FROM sending_message sm WHERE sm.id_freelancer = f1.id)
+=
+(SELECT COUNT(*) FROM sending_message sm WHERE sm.id_freelancer = f2.id)
+)
+</pre><br>Запрос 18.</div>
+    </div>
+  </div>
+  
+  <div id="change-2142" class="journal has-notes">
+    <div id="note-9">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/733#note-9" class="journal-link">#9</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #733  Сафонов Вадим. Дополнительные запросы - СУБД    1115 - Redmine_files/6ba5f779394158731c03fa5315a40983(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/121" class="user active">Вадим Сафонов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-06-01" title="02.06.2014 01:47">12 месяца</a> назад</h4>
+
+    <div class="wiki" id="journal-2142-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/733/quoted?journal_id=2142" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><pre>SELECT f1.login, f2.login
+FROM freelancer f1
+INNER JOIN
+(SELECT * FROM freelancer f2) AS f2 ON f1.id &lt; f2.id
+WHERE
+(
+(SELECT COUNT(*) FROM posting_comment pc WHERE pc.id_freelancer = f1.id)
+=
+(SELECT COUNT(*) FROM posting_comment pc WHERE pc.id_freelancer = f2.id)
+)
+</pre><br>Запрос 18.</div>
+    </div>
+  </div>
+  
+  <div id="change-2144" class="journal has-notes">
+    <div id="note-10">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/733#note-10" class="journal-link">#10</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #733  Сафонов Вадим. Дополнительные запросы - СУБД    1115 - Redmine_files/6ba5f779394158731c03fa5315a40983(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/121" class="user active">Вадим Сафонов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-06-01" title="02.06.2014 02:16">12 месяца</a> назад</h4>
+
+    <div class="wiki" id="journal-2144-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/733/quoted?journal_id=2144" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><pre>SELECT t.counters, COUNT(*) AS matches
+FROM
+(
+    SELECT COUNT(*) AS counters
+    FROM freelancer f
+    INNER JOIN sending_message sm ON sm.id_freelancer = f.id
+    INNER JOIN employer e ON sm.id_employer = e.id
+    GROUP BY f.id, e.id
+) AS t
+GROUP BY t.counters;
+</pre><br>Запрос 11.</div>
+    </div>
+  </div>
+  
+  <div id="change-2145" class="journal has-notes">
+    <div id="note-11">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/733#note-11" class="journal-link">#11</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #733  Сафонов Вадим. Дополнительные запросы - СУБД    1115 - Redmine_files/6ba5f779394158731c03fa5315a40983(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/121" class="user active">Вадим Сафонов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-06-01" title="02.06.2014 03:55">12 месяца</a> назад</h4>
+
+    <div class="wiki" id="journal-2145-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/733/quoted?journal_id=2145" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><pre>SELECT SUM(t3.counters)
+FROM
+(
+    SELECT t1.counters
+    FROM
+    (
+    SELECT COUNT(*) AS counters
+    FROM freelancer f
+    INNER JOIN sending_message sm ON sm.id_freelancer = f.id
+    INNER JOIN employer e ON sm.id_employer = e.id
+    GROUP BY f.id, e.id
+    ) AS t1
+    GROUP BY t1.counters
+    HAVING COUNT(*) &gt;
+    (
+        SELECT AVG(t2.matches)
+        FROM(
+            SELECT t.counters, COUNT(*) AS matches
+            FROM
+            (
+            SELECT COUNT(*) AS counters
+            FROM freelancer f
+            INNER JOIN sending_message sm ON sm.id_freelancer = f.id
+            INNER JOIN employer e ON sm.id_employer = e.id
+            GROUP BY f.id, e.id
+            ) AS t
+            GROUP BY t.counters
+        ) AS t2
+    )
+) AS t3
+</pre><br>Запрос 19.</div>
+    </div>
+  </div>
+  
+  <div id="change-2172" class="journal has-details">
+    <div id="note-12">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/733#note-12" class="journal-link">#12</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #733  Сафонов Вадим. Дополнительные запросы - СУБД    1115 - Redmine_files/637dc6a3b52b0db7b2ca2a71734c1386(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/95" class="user active">Иван Иванович Худяшов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-06-06" title="06.06.2014 20:16">12 месяца</a> назад</h4>
+
+    <ul class="details">
+       <li>Параметр <strong>Статус</strong> изменился с <i>Новый</i> на <i>In Progress</i></li>
+    </ul>
+    
+    </div>
+  </div>
+  
+  <div id="change-2177" class="journal has-notes">
+    <div id="note-13">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/733#note-13" class="journal-link">#13</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #733  Сафонов Вадим. Дополнительные запросы - СУБД    1115 - Redmine_files/637dc6a3b52b0db7b2ca2a71734c1386(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/95" class="user active">Иван Иванович Худяшов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-06-08" title="08.06.2014 15:41">12 месяца</a> назад</h4>
+
+    <div class="wiki" id="journal-2177-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/733/quoted?journal_id=2177" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><p><strong>Запросы 12 - 14 зачтены</strong></p>
+
+
+<strong>Замечания:</strong>
+	<ul>
+	<li>В 12 запросе ошибочна конструкция подзапроса во FROM, так как выводятся несгруппированные столбцы. При наличии функциональной зависимости (что имеет место быть) ошибки при работе запроса не будет, но в других СУБД такая конструкция запрещена.</li>
+		<li>В 14 запросе поиска максимума реализован не оптимально. Лучше всего для этого использовать групповую функцию <strong>MAX</strong></li>
+	</ul></div>
+    </div>
+  </div>
+  
+  <div id="change-2178" class="journal has-notes has-details">
+    <div id="note-14">
+    <h4><a href="https://isc.tsu.ru/redmine/issues/733#note-14" class="journal-link">#14</a>
+    <img alt="" class="gravatar" default="identicon" rating="PG" src="./Улучшение #733  Сафонов Вадим. Дополнительные запросы - СУБД    1115 - Redmine_files/637dc6a3b52b0db7b2ca2a71734c1386(1)" ssl="false" title="">
+    Обновлено <a href="https://isc.tsu.ru/redmine/users/95" class="user active">Иван Иванович Худяшов</a> <a href="https://isc.tsu.ru/redmine/projects/students-lab-db-1115/activity?from=2014-06-08" title="09.06.2014 00:15">12 месяца</a> назад</h4>
+
+    <ul class="details">
+       <li>Параметр <strong>Дата выполнения</strong> изменился на <i>09.06.2014</i></li>
+       <li>Параметр <strong>Статус</strong> изменился с <i>In Progress</i> на <i>Закрыт</i></li>
+       <li>Параметр <strong>Готовность</strong> изменился с <i>0</i> на <i>100</i></li>
+    </ul>
+    <div class="wiki" id="journal-2178-notes"><div class="contextual"><a href="https://isc.tsu.ru/redmine/issues/733/quoted?journal_id=2178" data-method="post" data-remote="true" rel="nofollow" title="Цитировать"><img alt="Comment" src="https://isc.tsu.ru/redmine/images/comment.png?1396112202"></a></div><strong>Замечания:</strong>
+	<ul>
+	<li>Следует иметь ввиду, что использование коррелированных подзапросов, особенное в конструкции SELECT ведёт к значительному увеличению накладных расходов по времени, поэтому на практики обычно подобные запросы оптимизируют. Это важно знать, если планируете использовать SQL для решения <strong>реальных</strong> практических задач</li>
+		<li>В 11 и 19 запросах имелось ввиду несколько другое, но конструкции получились правильные, поэтому они засчитываются</li>
+	</ul>
+
+
+	<p><strong><ins>Все запросы зачтены</ins></strong><br><strong><ins>Зачёт по курсу СУБД получен</ins></strong></p></div>
+    </div>
+  </div>
+  
+
+
+</div>
+
+
+<div style="clear: both;"></div>
+<div class="contextual">
+<a href="https://isc.tsu.ru/redmine/issues/733/edit" class="icon icon-edit" onclick="showAndScrollTo(&quot;update&quot;, &quot;issue_notes&quot;); return false;">Редактировать</a>
+
+<a href="https://isc.tsu.ru/redmine/watchers/watch?object_id=733&object_type=issue" class="issue-733-watcher icon icon-fav-off" data-method="post" data-remote="true" rel="nofollow">Следить</a>
+
+
+</div>
+
+
+<div style="clear: both;"></div>
+  <div id="update" style="display:none;">
+  <h3>Редактировать</h3>
+  <form accept-charset="UTF-8" action="./Улучшение #733  Сафонов Вадим. Дополнительные запросы - СУБД    1115 - Redmine_files/Улучшение #733  Сафонов Вадим. Дополнительные запросы - СУБД    1115 - Redmine.html" class="edit_issue" enctype="multipart/form-data" id="issue-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"><input name="_method" type="hidden" value="put"><input name="authenticity_token" type="hidden" value="wwqSTLf4mqZLo0QNQafVXERL8eLETyktHoBWx/WLkoI="></div>
+    
+    
+    <div class="box">
+
+    <fieldset><legend>Примечания</legend>
+    <div class="jstElements"><button type="button" tabindex="200" class="jstb_strong" title="Жирный"><span>Жирный</span></button><button type="button" tabindex="200" class="jstb_em" title="Курсив"><span>Курсив</span></button><button type="button" tabindex="200" class="jstb_ins" title="Подчеркнутый"><span>Подчеркнутый</span></button><button type="button" tabindex="200" class="jstb_del" title="Зачеркнутый"><span>Зачеркнутый</span></button><button type="button" tabindex="200" class="jstb_code" title="Вставка кода"><span>Вставка кода</span></button><span id="space1" class="jstSpacer">&nbsp;</span><button type="button" tabindex="200" class="jstb_h1" title="Заголовок 1"><span>Заголовок 1</span></button><button type="button" tabindex="200" class="jstb_h2" title="Заголовок 2"><span>Заголовок 2</span></button><button type="button" tabindex="200" class="jstb_h3" title="Заголовок 3"><span>Заголовок 3</span></button><span id="space2" class="jstSpacer">&nbsp;</span><button type="button" tabindex="200" class="jstb_ul" title="Маркированный список"><span>Маркированный список</span></button><button type="button" tabindex="200" class="jstb_ol" title="Нумерованный список"><span>Нумерованный список</span></button><span id="space3" class="jstSpacer">&nbsp;</span><button type="button" tabindex="200" class="jstb_bq" title="Цитата"><span>Цитата</span></button><button type="button" tabindex="200" class="jstb_unbq" title="Удалить цитату"><span>Удалить цитату</span></button><button type="button" tabindex="200" class="jstb_pre" title="Заранее форматированный текст"><span>Заранее форматированный текст</span></button><span id="space4" class="jstSpacer">&nbsp;</span><button type="button" tabindex="200" class="jstb_link" title="Ссылка на страницу в Wiki"><span>Ссылка на страницу в Wiki</span></button><button type="button" tabindex="200" class="jstb_img" title="Вставка изображения"><span>Вставка изображения</span></button><span id="space5" class="jstSpacer">&nbsp;</span><button type="button" tabindex="200" class="jstb_help" title="Help"><span>Help</span></button></div><div class="jstEditor"><textarea class="wiki-edit" cols="60" id="issue_notes" name="issue[notes]" rows="10"></textarea></div>
+    <script type="text/javascript">
+//<![CDATA[
+var wikiToolbar = new jsToolBar(document.getElementById('issue_notes')); wikiToolbar.setHelpLink('/redmine/help/ru/wiki_syntax.html'); wikiToolbar.draw();
+//]]>
+</script>
+
+
+    
+    </fieldset>
+
+    <fieldset><legend>Файлы</legend>
+    <p><span id="attachments_fields">
+</span>
+<span class="add_attachment">
+<input class="file_selector" data-description-placeholder="Описание (необязательно)" data-max-concurrent-uploads="2" data-max-file-size-message="Этот файл нельзя загрузить из-за превышения максимального размера файла (19,531 МБ)" data-max-file-size="20480000" data-upload-path="/redmine/uploads.js" multiple="multiple" name="attachments[dummy][file]" onchange="addInputFiles(this);" type="file">
+(Максимальный размер: 19,531 МБ)
+</span>
+
+</p>
+    </fieldset>
+    </div>
+
+    <input id="issue_lock_version" name="issue[lock_version]" type="hidden" value="14">
+    <input id="last_journal_id" name="last_journal_id" type="hidden" value="2178">
+    <input name="commit" type="submit" value="Принять">
+    <a accesskey="r" href="https://isc.tsu.ru/redmine/issues/733#" onclick="submitPreview(&quot;/redmine/issues/preview/edit/733?project_id=students-lab-db-1115&quot;, &quot;issue-form&quot;, &quot;preview&quot;); return false;">Предпросмотр</a>
+</form>
+<div id="preview" class="wiki"></div>
+
+  </div>
+
+<p class="other-formats">Экспортировать в  <span><a href="https://isc.tsu.ru/redmine/issues/733.atom?key=5c8c59dab0896b92e454f7be1b425a8aee228d19" class="atom" rel="nofollow">Atom</a></span>
+  <span><a href="https://isc.tsu.ru/redmine/issues/733.pdf" class="pdf" rel="nofollow">PDF</a></span>
+</p>
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+contextMenuInit('/redmine/issues/context_menu')
+//]]>
+</script><div id="context-menu" style="display:none;"></div>
+
+        
+        <div style="clear:both;"></div>
+    </div>
+</div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Загрузка...</span></div>
+<div id="ajax-modal" style="display:none;"></div>
+
+<div id="footer">
+  <div class="bgl"><div class="bgr">
+    Powered by <a href="http://www.redmine.org/">Redmine</a> © 2006-2014 Jean-Philippe Lang
+  </div></div>
+</div>
+</div>
+</div>
+
+
+
+</body></html>

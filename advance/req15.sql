@@ -18,7 +18,7 @@
 
 
 
-/*
+
 select service.name, service.cost
 	from service join
 		(select subservice.id,
@@ -44,11 +44,7 @@ select service.name, service.cost
 						join service on department.name = service.idDepart
 						join #количество клиентов воспользовавшихся услугой
 						(select service.id as serv_id, count(distinct client.id) as numb_of_clients
-							from company join branch_office on company.name = branch_office.idCompany
-								join office on branch_office.id = office.idBranch
-								join department on office.address = department.idOffice
-								join service on department.name = service.idDepart
-								join ordered_service on service.id = ordered_service.idService
+							from service join ordered_service on service.id = ordered_service.idService
 								join _order on ordered_service.idOrder = _order.id
 								join client on _order.idClient = client.id
 							group by service.id
@@ -57,9 +53,39 @@ select service.name, service.cost
 				), 1, 0
 			)
 		#проверка второго условия
-		#+ if(exists(), 1, 0)
+		+ if(exists
+					(select service.id
+						from service join ordered_service on service.id = ordered_service.idService
+							join #количество жалоб на каждый заказ
+							(select _order.id as ord_id, count(*) as claims
+								from service join ordered_service on service.id = ordered_service.idService
+									join _order on ordered_service.idOrder = _order.id
+									join claim on _order.id = claim.idOrder
+								group by _order.id
+							) as ord_claims_tbl on ordered_service.idOrder = ord_claims_tbl.ord_id
+						where claims = 0 and subservice.id = service.id
+					), 1, 0
+				)
 		#проверка третьего условия
-		#+ if(exists(), 1, 0)
+		+ if(
+					#считается количество филиалов
+					(select count(*) as numb_of_branch_offices
+						from branch_office
+					)
+					=
+					#считается количество филиалов с нужной услугой
+					/*
+					(select sum(numb_of_broffs_w_serv_tbl.service_exists)
+						from #таблица в которой, 1 - услуга есть в филиале
+								#									 0 - услуги в филиале нет
+							(select service.name as serv_name, if(service.name = subservice.name, 1, 0)
+								from branch_office join office on branch_office.id = office.idBranch
+									join department on office.address = department.idOffice
+									join service on department.name = service.idDepart
+							) as numb_of_broffs_w_serv_tbl
+					), 1, 0*/
+					)
+				 
 		#проверка четвёртого условия
 		#+ if(exists(), 1, 0)
 		#проверка пятого условия
@@ -69,6 +95,37 @@ select service.name, service.cost
 		) as subservice
 		on service.id = subservice.id
 	where conds > 3
+
+
+
+
+
+
+
+
+/*
+if(exists
+		(select service.id
+
+		), 1, 0
+	)
+
+
+#считается количество филиалов
+(select count(*) as numb_of_branch_offices
+	from branch_office
+)
+=
+#считается количество филиалов с нужной услугой
+(select sum(numb_of_broffs_w_serv_tbl.service_exists)
+	from #таблица в которой, 1 - услуга есть в филиале
+			 #									 0 - услуги в филиале нет
+		(select service.name as serv_name, if(service.name = subservice.name, 1, 0)
+			from branch_office join office on branch_office.id = office.idBranch
+				join department on office.address = department.idOffice
+				join service on department.name = service.idDepart
+		) as numb_of_broffs_w_serv_tbl
+) as numb_of_broffs
 */
 
 
@@ -90,6 +147,10 @@ select service.name, service.cost
 
 
 
-	from service join ordered_service on service.id = ordered_service.idService
-		join _order on ordered_service.idOrder = _order.id
-		join claim on _order.id = claim.idOrder
+
+
+
+
+
+
+

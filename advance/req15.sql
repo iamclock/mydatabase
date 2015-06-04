@@ -18,60 +18,78 @@
 
 
 
+/*
+select service.name, service.cost
+	from service join
+		(select subservice.id,
+		# проверяется первое условие
+		if(exists
+				(select company.name
+					from #в целом таблица показывает общее количество клиентов компании, и количество клиентов воспользовавшихся одной конкретной услугой
+					#все клиенты компании
+						(select company.name as comp_name, count(distinct client.id) as entire_numb_of_clients
+							from company join branch_office on company.name = branch_office.idCompany
+								join office on branch_office.id = office.idBranch
+								join department on office.address = department.idOffice
+								join service on department.name = service.idDepart
+								join ordered_service on service.id = ordered_service.idService
+								join _order on ordered_service.idOrder = _order.id
+								join client on _order.idClient = client.id
+							group by company.name
+						) as numb_clients_comp_tbl
+						join company on numb_clients_comp_tbl.comp_name = company.name
+						join branch_office on company.name = branch_office.idCompany
+						join office on branch_office.id = office.idBranch
+						join department on office.address = department.idOffice
+						join service on department.name = service.idDepart
+						join #количество клиентов воспользовавшихся услугой
+						(select service.id as serv_id, count(distinct client.id) as numb_of_clients
+							from company join branch_office on company.name = branch_office.idCompany
+								join office on branch_office.id = office.idBranch
+								join department on office.address = department.idOffice
+								join service on department.name = service.idDepart
+								join ordered_service on service.id = ordered_service.idService
+								join _order on ordered_service.idOrder = _order.id
+								join client on _order.idClient = client.id
+							group by service.id
+						) as numb_clients_serv_tbl on service.id = numb_clients_serv_tbl.serv_id
+					where serv_id = subservice.id and (entire_numb_of_clients/2)-1 < numb_of_clients
+				), 1, 0
+			)
+		#проверка второго условия
+		#+ if(exists(), 1, 0)
+		#проверка третьего условия
+		#+ if(exists(), 1, 0)
+		#проверка четвёртого условия
+		#+ if(exists(), 1, 0)
+		#проверка пятого условия
+		#+ if(exists(), 1, 0)
+		as conds
+		from service as subservice
+		) as subservice
+		on service.id = subservice.id
+	where conds > 3
+*/
 
 
 
 
 
-(select service.name, service.cost
-	from 
-		
-		
-	
-	
-)
 
 
 
 
-	from company join branch_office on company.name = branch_office.idCompany
-		join office on branch_office.id = office.idBranch
-		join department on office.address = department.idOffice
-		join service on department.name = service.idDepart
-		join ordered_service on service.id = ordered_service.idService
+
+
+
+
+
+
+
+
+
+
+
+	from service join ordered_service on service.id = ordered_service.idService
 		join _order on ordered_service.idOrder = _order.id
 		join claim on _order.id = claim.idOrder
-
-
-
-
-
-
-
-
-if(select 
-	from
-		#количество клиентов воспользовавшихся услугой
-		(select service.id, count(*) as numb_of_clients
-			from company join branch_office on company.name = branch_office.idCompany
-				join office on branch_office.id = office.idBranch
-				join department on office.address = department.idOffice
-				join service on department.name = service.idDepart
-				join ordered_service on service.id = ordered_service.idService
-				join _order on ordered_service.idOrder = _order.id
-				join client on _order.idClient = client.id
-				group by service
-		) as numb_clients_serv_tbl
-		join
-		#общее количество клиентов у компании
-		(select company.name as comp_name, count(distinct client.id) as entire_numb_of_clients
-			from company join branch_office on company.name = branch_office.idCompany
-				join office on branch_office.id = office.idBranch
-				join department on office.address = department.idOffice
-				join service on department.name = service.idDepart
-				join ordered_service on service.id = ordered_service.idService
-				join _order on ordered_service.idOrder = _order.id
-				join client on _order.idClient = client.id
-		) as numb_clients_comp_tbl on numb_clients_serv_tbl.id = numb_clients_comp_tbl.
-
-

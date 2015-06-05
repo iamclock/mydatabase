@@ -21,11 +21,27 @@
 
 
 
+select ord_id2, sum(available) as service_count
+	from
+		(select _order.id as ord_id2, if(ser1.name = ser2.name, 1, 0) as available
+			from ordered_service join service as ser1 on ordered_service.idService = ser1.id
+				join _order on ordered_service.idOrder = _order.id
+				join service as ser2 on ser1.id < ser2.id
+		) as serv_count_tbl
+	group by ord_id2
 
 
 
 
 
+
+
+
+
+
+
+
+/*
 select service.name, service.cost
 	from service join
 		(select subservice.id,
@@ -120,15 +136,20 @@ select service.name, service.cost
 								group by _order.id
 							) as numb_of_ords_tbl
 							join
+							
+							
 							(select ord_id2, sum(available) as service_count
 								from
-									(select _order.id as ord_id2, if(service.name = subservice.name, 1, 0) as available
-										from ordered_service join service on ordered_service.idService = service.id
+									(select _order.id as ord_id2, if(ser1.name = ser2.name, 1, 0) as available
+										from ordered_service join service as ser1 on ordered_service.idService = ser1.id
 											join _order on ordered_service.idOrder = _order.id
-									)
+											join service as ser2 on ser1.id < ser2.id
+									) as serv_count_tbl
 								group by ord_id2
 							) as serv_count_tbl on numb_of_ords_tbl.ord_id1 = serv_count_tbl.ord_id2
-						where available*100/all_orders > 14
+							
+							
+						where available*100/all_orders > 14 and ser1.id = subservice.id
 					), 1, 0
 				)
 		as conds
@@ -136,7 +157,7 @@ select service.name, service.cost
 		) as subservice_new
 		on service.id = subservice_new.id
 	where conds > 3
-
+*/
 
 
 

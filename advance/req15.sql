@@ -1,8 +1,7 @@
 /*
 15. Найти услуги, для которых выполнится по крайней мере 4 условия из следующего списка
-4) Эту услугу не оказывают отделы, в которых самые большие зарплаты
 5) Если выбрать все заказы и за единицу принять отдельные услуги в заказах, то эта услуга должна составлять не менее 15% от общего количества единиц.
-5) посчитать сколько раз услуга была заказана и если она составляет > 14% от всех услуг вывести её
+5) посчитать сколько раз услуга была заказана и если она составляет > 15% от всех услуг вывести её
 Вывод: Название услуги, Цена услуги
 */
 
@@ -21,27 +20,10 @@
 
 
 
-select ord_id2, sum(available) as service_count
-	from
-		(select _order.id as ord_id2, if(ser1.name = ser2.name, 1, 0) as available
-			from ordered_service join service as ser1 on ordered_service.idService = ser1.id
-				join _order on ordered_service.idOrder = _order.id
-				join service as ser2 on ser1.id < ser2.id
-		) as serv_count_tbl
-	group by ord_id2
 
 
 
 
-
-
-
-
-
-
-
-
-/*
 select service.name, service.cost
 	from service join
 		(select subservice.id,
@@ -128,36 +110,25 @@ select service.name, service.cost
 				)
 		#проверка пятого условия
 		+ if(exists
-					(select service.id
-						from
-							(select _order.id as ord_id1, count(*) as all_orders
+					(select serv_name
+						from #ищится число всех заказанных услуг
+							(select count(*) as all_orders
 								from ordered_service join service on ordered_service.idService = service.id
 									join _order on ordered_service.idOrder = _order.id
 								group by _order.id
 							) as numb_of_ords_tbl
-							join
-							
-							
-							(select ord_id2, sum(available) as service_count
-								from
-									(select _order.id as ord_id2, if(ser1.name = ser2.name, 1, 0) as available
-										from ordered_service join service as ser1 on ordered_service.idService = ser1.id
-											join _order on ordered_service.idOrder = _order.id
-											join service as ser2 on ser1.id < ser2.id
-									) as serv_count_tbl
-								group by ord_id2
-							) as serv_count_tbl on numb_of_ords_tbl.ord_id1 = serv_count_tbl.ord_id2
-							
-							
-						where available*100/all_orders > 14 and ser1.id = subservice.id
+							join #ищится число заказов конкретной услуги
+							(select service.name as serv_name, count(*) as available
+								from ordered_service join service on ordered_service.idService = service.id
+									join _order on ordered_service.idOrder = _order.id
+							) as numb_of_ordered_service_tbl
+						where available*100/all_orders >= 15 and numb_of_ordered_service_tbl.serv_name = subservice.id
 					), 1, 0
-				)
-		as conds
+				) as conds
 		from service as subservice
 		) as subservice_new
 		on service.id = subservice_new.id
 	where conds > 3
-*/
 
 
 

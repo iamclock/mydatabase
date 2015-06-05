@@ -1,8 +1,5 @@
 /*
 15. Найти услуги, для которых выполнится по крайней мере 4 условия из следующего списка
-1) Ими пользовались хотя бы половина клиентов
-2) Нет жалоб на заказы, в которые входила эта услуга
-3) Эта услуга есть во всех филиалах
 4) Эту услугу не оказывают отделы, в которых самые большие зарплаты
 5) Если выбрать все заказы и за единицу принять отдельные услуги в заказах, то эта услуга должна составлять не менее 15% от общего количества единиц.
 Вывод: Название услуги, Цена услуги
@@ -15,6 +12,13 @@
 # \ /
 #  V
 # (id) service (idDepart) -> (name) department (idOffice) -> (address) office (idBranch) -> (id) branch_office (idCompany) -> (name) company
+#															 /\
+#															/  \
+#															 ||
+#														(idDepart) employee
+
+
+
 
 
 
@@ -67,27 +71,42 @@ select service.name, service.cost
 					), 1, 0
 				)
 		#проверка третьего условия
-		+ if(
-					#считается количество филиалов
-					(select count(*) as numb_of_branch_offices
-						from branch_office
-					)
-					=
-					#считается количество филиалов с нужной услугой
-					/*
-					(select sum(numb_of_broffs_w_serv_tbl.service_exists)
-						from #таблица в которой, 1 - услуга есть в филиале
-								#									 0 - услуги в филиале нет
-							(select service.name as serv_name, if(service.name = subservice.name, 1, 0)
+		+ if(exists
+					(select serv_name
+						from #считается количество филиалов
+							(select count(*) as numb_of_branch_offices
+								from branch_office
+							) as count_branch_offs_tbl
+							join
+							#считается количество филиалов с нужной услугой
+							(select distinct service.name as serv_name, count(*) as count_of_servs_in_comp
 								from branch_office join office on branch_office.id = office.idBranch
 									join department on office.address = department.idOffice
 									join service on department.name = service.idDepart
-							) as numb_of_broffs_w_serv_tbl
-					), 1, 0*/
-					)
-				 
+								group by service.name
+							) as same_servs_tbl
+						where subservice.name = serv_name and numb_of_branch_offices = count_of_servs_in_comp
+					), 1, 0
+				)
 		#проверка четвёртого условия
-		#+ if(exists(), 1, 0)
+		+ if(exists
+					(select service.id
+						from service join
+							(select department.name as depart_name, sum(salary) as entire_department_salary
+								from department join employee on department.name = employee.idDepart
+								group by department.name
+							) as depart_salaries_tbl1 on service.idDepart = depart_name
+							join
+							(select max(entire_department_salary) as max_dep_sal
+								from
+									(select department.name as depart_name, sum(salary) as entire_department_salary
+										from department join employee on department.name = employee.idDepart
+										group by department.name
+									) as depart_salaries_tbl1
+							) max_salary_in_dep
+							where service.id = subservice.id and max_dep_sal != entire_department_salary
+					), 1, 0
+				)
 		#проверка пятого условия
 		#+ if(exists(), 1, 0)
 		as conds
@@ -100,33 +119,6 @@ select service.name, service.cost
 
 
 
-
-
-
-/*
-if(exists
-		(select service.id
-
-		), 1, 0
-	)
-
-
-#считается количество филиалов
-(select count(*) as numb_of_branch_offices
-	from branch_office
-)
-=
-#считается количество филиалов с нужной услугой
-(select sum(numb_of_broffs_w_serv_tbl.service_exists)
-	from #таблица в которой, 1 - услуга есть в филиале
-			 #									 0 - услуги в филиале нет
-		(select service.name as serv_name, if(service.name = subservice.name, 1, 0)
-			from branch_office join office on branch_office.id = office.idBranch
-				join department on office.address = department.idOffice
-				join service on department.name = service.idDepart
-		) as numb_of_broffs_w_serv_tbl
-) as numb_of_broffs
-*/
 
 
 

@@ -2,6 +2,7 @@
 15. Найти услуги, для которых выполнится по крайней мере 4 условия из следующего списка
 4) Эту услугу не оказывают отделы, в которых самые большие зарплаты
 5) Если выбрать все заказы и за единицу принять отдельные услуги в заказах, то эта услуга должна составлять не менее 15% от общего количества единиц.
+5) посчитать сколько раз услуга была заказана и если она составляет > 14% от всех услуг вывести её
 Вывод: Название услуги, Цена услуги
 */
 
@@ -16,6 +17,8 @@
 #															/  \
 #															 ||
 #														(idDepart) employee
+
+
 
 
 
@@ -108,40 +111,31 @@ select service.name, service.cost
 					), 1, 0
 				)
 		#проверка пятого условия
-		#+ if(exists(), 1, 0)
+		+ if(exists
+					(select service.id
+						from
+							(select _order.id as ord_id1, count(*) as all_orders
+								from ordered_service join service on ordered_service.idService = service.id
+									join _order on ordered_service.idOrder = _order.id
+								group by _order.id
+							) as numb_of_ords_tbl
+							join
+							(select ord_id2, sum(available) as service_count
+								from
+									(select _order.id as ord_id2, if(service.name = subservice.name, 1, 0) as available
+										from ordered_service join service on ordered_service.idService = service.id
+											join _order on ordered_service.idOrder = _order.id
+									)
+								group by ord_id2
+							) as serv_count_tbl on numb_of_ords_tbl.ord_id1 = serv_count_tbl.ord_id2
+						where available*100/all_orders > 14
+					), 1, 0
+				)
 		as conds
 		from service as subservice
-		) as subservice
-		on service.id = subservice.id
+		) as subservice_new
+		on service.id = subservice_new.id
 	where conds > 3
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
